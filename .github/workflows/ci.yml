@@ -22,7 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-	  VALIDATE_CHECKOV: false
+          VALIDATE_CHECKOV: false
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
@@ -32,3 +32,4 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-cicd:latest
+
